@@ -2,21 +2,40 @@
 <head>
 <?php 
 session_start();
-
+include 'public.html';
 ?>
 
 </head>
 <body>
-<form action="#" method="post">
+
+  <section id="aa-signin">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-signin-area">
+            <div class="aa-signin-form">
+<form action="#" method="post" class="contactform">
+		  
+                <div class="aa-single-field">
 <label>user ID</label>
-<input type="text" name="uid"></br>
-<label>password</label><input type="password" name="pass"></br>
-<input type="submit" value="submit" name="log">
+<input type="text" name="uid" required></div>
+			  
+                <div class="aa-single-field">
+<label>password</label><input type="password" name="pass" required></div>
+<div class="col-md-6">	
+<div class="aa-single-submit">
+    <input type="submit" value="Login" name="log"></div></div>
+    <div class="col-md-6">	
+<div class="aa-single-submit">
 <input type="submit" value="reset">
-</br>
-<a href="">Forget password</a>
-<a href="new_user.php">New user</a>
-</form>
+</div></div>
+<div class="col-md-4">			  
+                <div class="aa-single-field">
+<a href="forgot.php">Forget password</a></div></div>
+<div class="col-md-4">			  
+                <div class="aa-single-field">
+<a href="new_user.php">New user</a></div></div>
+
 <?php
 include 'db.php';
 if(isset($_POST['log']))
@@ -34,23 +53,43 @@ if(isset($_POST['log']))
     }
     if($type=="user")
     {
-        header("location:user.php");
+        ?>
+        <script>
+            window.location="user1.html";
+            </script>
+        <?php
     }
     elseif($type=="RTO")
     {
-        header("location:rto.php");
+        ?>
+        <script>
+            window.location="rto1.html";
+            </script>
+            <?php
     }
-    elseif($type=="treasury")
+    elseif($type=="Treasury")
     {
-       // header("location:");
+        ?>
+        <script>
+            window.location="treasury1.html";
+            </script>
+            <?php
     }
-    elseif($type=="traffic")
+    elseif($type=="Traffic police")
     {
-        //header("location:");
+        ?>
+        <script>
+            window.location="traffic1.html";
+            </script>
+            <?php
     }
     elseif($type=="admin")
     {
-        //header("location:");
+        ?>
+        <script>
+            window.location="admin.html";
+            </script>
+            <?php
     }
     else
     {
@@ -61,4 +100,12 @@ if(isset($_POST['log']))
         <?php
     }}
     ?>
+    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+</section>
+</form>
 </body></html>
